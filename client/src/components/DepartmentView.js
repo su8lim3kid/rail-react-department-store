@@ -21,8 +21,6 @@ class DepartmentView extends React.Component {
       <div>
         <Segment>
           <Header as="h1">{ name }</Header>
-         
-          <p>{ description }</p>
           <Header as="p">{ description }</Header>  
         </Segment>
         <br />
