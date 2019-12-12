@@ -14,9 +14,14 @@ const Navbar = () => (
         About
       </Menu.Item>
     </Link>
-    <Link to="/department">
+    <Link to="/departments">
       <Menu.Item>
-       Department
+       Departments
+      </Menu.Item>
+    </Link>
+    <Link to="departments/new">
+      <Menu.Item>
+        New Department
       </Menu.Item>
     </Link>
   </Menu>

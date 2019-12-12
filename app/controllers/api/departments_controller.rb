@@ -6,7 +6,7 @@ before_action :set_department, only: [:show , :update, :destroy ]
   end
 
   def show
-    render json:@product
+    render json:@department
   end
 
   def create

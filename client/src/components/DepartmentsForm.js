@@ -5,7 +5,11 @@ import axios from "axios";
 class DepartmentsForm extends React.Component {
   defaultValues = { name: "", description: "", };
   state = { ...this.defaultValues, };
-
+  
+  handleChange = (e, { name, value, }) => {
+    this.setState({ [name]: value, });
+  };
+  
   handleSubmit = (e) => {
     e.preventDefault();
     axios.post("/api/departments", { ...this.state, })
@@ -16,10 +20,6 @@ class DepartmentsForm extends React.Component {
   };
 
 
-  handleChange = (e) => {
-    const { target: { name, value, } } = e;
-    this.setState({ [name]: value, });
-  }
 
   render() {
     const { name, description, } = this.state;
