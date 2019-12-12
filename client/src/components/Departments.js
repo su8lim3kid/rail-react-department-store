@@ -6,14 +6,30 @@ import { Link, } from "react-router-dom";
 
 class departments extends React.Component {
   state = { departments: [], };
-
+  
   componentDidMount() {
-      axios.get("/api/departments")
-      .then( res =>{
-          this.setState({ departments: res.data})
-      })
-     
+    axios.get("/api/departments")
+    .then( res =>{
+      this.setState({ departments: res.data})
+    })
+    
   }
+//  Edit button does not work yet 
+
+
+  // updateDepartment = (id) => {
+  //       axios.put(`/api/departments/${id}`)
+  //     .then( res => {
+  //       const departments = this.state.departments.map( department => {
+  //         if (department.id === departmentData.id)
+  //           return departmentData;
+  //         return department
+  //       });
+  //       this.setState({ departments: res.data })}
+  //     }
+      
+   
+          
 
   deleteDepartment = (id) => {
     axios.delete(`/api/departments/${id}`)
@@ -22,6 +38,8 @@ class departments extends React.Component {
         this.setState({ departments: departments.filter(t => t.id !== id), })
       })
   }
+ 
+      
 
   renderDepartments = () => {
     const { departments, } = this.state;
@@ -35,10 +53,11 @@ class departments extends React.Component {
           <Card.Description>{ departments.description }</Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Button as={Link} to={`/departments/${departments.id}`} color='blue'>
+          <Button as={Link} to={`/departments/${departments.id}`} color='teal'>
             View
           </Button>
           <Button icon color='red' onClick={() => this.deleteDepartment(departments.id)}> <Icon name='trash' /> </Button>
+          <Button icon color='blue' onClick={() => this.updateDepartment(departments.id)}> <Icon name='pencil' /> </Button>
         </Card.Content>
       </Card>
     ))
